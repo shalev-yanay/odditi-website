@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ODDITI — Musician • Producer • Psy-Bass / Halftime / Glitch</title>
+    <title>ODDITI — Official Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
                     colors: {
                         void: '#07070c',
                         surface: '#11111a',
-                        neonPurple: '#b829ea',
-                        neonCyan: '#00f0ff',
-                        neonMagenta: '#ff007f',
+                        odditiRose: '#D96A73',
+                        odditiBlue: '#5E9ABF',
+                        odditiCrimson: '#D91828',
                     }
                 }
             }
@@ -33,22 +33,22 @@
             color: #f3f4f6;
             overflow-x: hidden;
         }
-        /* Cosmic Ambient Background */
+        /* Cosmic Ambient Background with New Palette (#D96A73, #5E9ABF, #D91828) */
         .cosmic-bg {
             background: 
-                radial-gradient(circle at 50% 25%, rgba(184, 41, 234, 0.18) 0%, transparent 50%),
-                radial-gradient(circle at 20% 60%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
-                radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 50% 25%, rgba(217, 24, 40, 0.16) 0%, transparent 52%),
+                radial-gradient(circle at 20% 58%, rgba(94, 154, 191, 0.12) 0%, transparent 48%),
+                radial-gradient(circle at 82% 78%, rgba(217, 106, 115, 0.12) 0%, transparent 48%),
                 #07070c;
         }
-        /* Logo Neon Glow */
+        /* Logo Glow */
         .logo-glow {
-            filter: drop-shadow(0 0 18px rgba(184, 41, 234, 0.75)) drop-shadow(0 0 40px rgba(0, 240, 255, 0.35));
+            filter: drop-shadow(0 0 22px rgba(217, 24, 40, 0.65)) drop-shadow(0 0 46px rgba(94, 154, 191, 0.35));
             transition: transform 0.4s ease, filter 0.4s ease;
         }
         .logo-glow:hover {
             transform: scale(1.03);
-            filter: drop-shadow(0 0 24px rgba(184, 41, 234, 0.95)) drop-shadow(0 0 55px rgba(0, 240, 255, 0.55));
+            filter: drop-shadow(0 0 28px rgba(217, 106, 115, 0.85)) drop-shadow(0 0 60px rgba(94, 154, 191, 0.55));
         }
         /* Glass Cards */
         .glass-card {
@@ -58,9 +58,9 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border-color: rgba(184, 41, 234, 0.5);
+            border-color: rgba(217, 106, 115, 0.55);
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(184, 41, 234, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(217, 24, 40, 0.32);
         }
         /* Subtle Grid Overlay */
         .bg-grid {
@@ -71,54 +71,90 @@
         }
     </style>
 </head>
-<body class="cosmic-bg bg-grid antialiased selection:bg-neonPurple selection:text-white">
+<body class="cosmic-bg bg-grid antialiased selection:bg-odditiCrimson selection:text-white">
 
-    <!-- NAVIGATION -->
-    <nav class="fixed top-0 inset-x-0 z-50 bg-void/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-center gap-6 sm:gap-10 text-sm font-medium tracking-wider uppercase text-gray-300">
-            <a href="#music" class="hover:text-neonCyan transition-colors flex items-center gap-1.5">
-                <span class="text-neonPurple">♫</span> Music
+    <!-- RESPONSIVE NAVIGATION -->
+    <nav class="fixed top-0 inset-x-0 z-50 bg-void/85 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between md:justify-center">
+            <!-- Mobile Brand Label -->
+            <a href="#" class="md:hidden font-display font-bold tracking-[0.22em] text-sm uppercase text-white flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-odditiCrimson shadow-[0_0_8px_#D91828]"></span>
+                ODDITI
             </a>
-            <a href="#sets" class="hover:text-neonCyan transition-colors flex items-center gap-1.5">
-                <span class="text-neonPurple">◉</span> DJ Sets
-            </a>
-            <a href="#about" class="hover:text-neonCyan transition-colors flex items-center gap-1.5">
-                <span class="text-neonPurple">◈</span> About
-            </a>
-            <a href="#everywhere" class="hover:text-neonCyan transition-colors flex items-center gap-1.5">
-                <span class="text-neonPurple">✦</span> Everywhere
-            </a>
-            <a href="#contact" class="hover:text-neonCyan transition-colors flex items-center gap-1.5">
-                <span class="text-neonPurple">✉</span> Contact
-            </a>
+
+            <!-- Desktop Centered Links -->
+            <div class="hidden md:flex items-center justify-center gap-8 lg:gap-10 text-sm font-medium tracking-wider uppercase text-gray-300">
+                <a href="#music" class="hover:text-odditiBlue transition-colors flex items-center gap-1.5">
+                    <span class="text-odditiRose">♫</span> Music
+                </a>
+                <a href="#sets" class="hover:text-odditiBlue transition-colors flex items-center gap-1.5">
+                    <span class="text-odditiRose">◉</span> DJ Sets
+                </a>
+                <a href="#about" class="hover:text-odditiBlue transition-colors flex items-center gap-1.5">
+                    <span class="text-odditiRose">◈</span> About
+                </a>
+                <a href="#everywhere" class="hover:text-odditiBlue transition-colors flex items-center gap-1.5">
+                    <span class="text-odditiRose">✦</span> Everywhere
+                </a>
+                <a href="#contact" class="hover:text-odditiBlue transition-colors flex items-center gap-1.5">
+                    <span class="text-odditiRose">✉</span> Contact
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" type="button" aria-label="Toggle Menu" aria-expanded="false" class="md:hidden p-2.5 rounded-xl text-gray-200 hover:text-white hover:bg-white/5 border border-white/10 transition-colors">
+                <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Collapsible Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-void/95 backdrop-blur-xl border-b border-white/10 px-6 py-5">
+            <div class="flex flex-col space-y-3 text-sm font-medium tracking-wider uppercase text-gray-200">
+                <a href="#music" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-odditiBlue transition-colors flex items-center gap-3">
+                    <span class="text-odditiRose">♫</span> Music
+                </a>
+                <a href="#sets" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-odditiBlue transition-colors flex items-center gap-3">
+                    <span class="text-odditiRose">◉</span> DJ Sets
+                </a>
+                <a href="#about" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-odditiBlue transition-colors flex items-center gap-3">
+                    <span class="text-odditiRose">◈</span> About
+                </a>
+                <a href="#everywhere" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-odditiBlue transition-colors flex items-center gap-3">
+                    <span class="text-odditiRose">✦</span> Everywhere
+                </a>
+                <a href="#contact" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-odditiBlue transition-colors flex items-center gap-3">
+                    <span class="text-odditiRose">✉</span> Contact
+                </a>
+            </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative">
-        <!-- Decorative Orbit Ring -->
-        <div class="absolute w-[340px] h-[340px] sm:w-[520px] sm:h-[520px] rounded-full border border-purple-500/15 pointer-events-none animate-[spin_45s_linear_infinite]"></div>
-        <div class="absolute w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] rounded-full border border-cyan-400/10 pointer-events-none animate-[spin_30s_linear_infinite_reverse]"></div>
+    <header class="min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
+        <!-- Decorative Orbit Rings -->
+        <div class="absolute w-[340px] h-[340px] sm:w-[540px] sm:h-[540px] rounded-full border border-odditiRose/20 pointer-events-none animate-[spin_45s_linear_infinite]"></div>
+        <div class="absolute w-[260px] h-[260px] sm:w-[420px] sm:h-[420px] rounded-full border border-odditiBlue/15 pointer-events-none animate-[spin_30s_linear_infinite_reverse]"></div>
 
-        <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
-            <!-- EDIT HERE: Project Logo (logo.svg) -->
-            <img src="logo.svg" alt="Odditi Logo" class="w-64 sm:w-80 md:w-96 h-auto mb-8 logo-glow select-none">
-
-            <p class="text-sm sm:text-base md:text-lg tracking-[0.25em] uppercase text-gray-300 font-light mb-10">
-                Musician <span class="text-neonPurple mx-1">•</span> Producer <span class="text-neonPurple mx-1">•</span> Psy-Bass / Halftime / Glitch
-            </p>
+        <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+            <!-- Larger Centered Project Logo (odditi.svg) -->
+            <img src="odditi.svg" alt="Odditi Logo" class="w-80 sm:w-[440px] md:w-[540px] max-w-full h-auto mb-10 logo-glow select-none">
 
             <div class="flex flex-wrap items-center justify-center gap-4">
-                <a href="#music" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-purple-600/30 to-cyan-500/20 border border-purple-400/50 hover:border-neonCyan text-white text-sm tracking-widest uppercase font-semibold transition-all shadow-[0_0_20px_rgba(184,41,234,0.3)] hover:shadow-[0_0_25px_rgba(0,240,255,0.45)]">
+                <a href="#music" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-odditiCrimson/35 via-odditiRose/25 to-odditiBlue/25 border border-odditiRose/60 hover:border-odditiBlue text-white text-sm tracking-widest uppercase font-semibold transition-all shadow-[0_0_22px_rgba(217,24,40,0.35)] hover:shadow-[0_0_28px_rgba(94,154,191,0.45)]">
                     Listen Now
                 </a>
-                <a href="#contact" class="px-8 py-3.5 rounded-full bg-white/5 border border-white/15 hover:border-white/40 text-gray-200 hover:text-white text-sm tracking-widest uppercase font-semibold transition-all">
+                <a href="#contact" class="px-8 py-3.5 rounded-full bg-white/5 border border-white/15 hover:border-odditiRose/60 text-gray-200 hover:text-white text-sm tracking-widest uppercase font-semibold transition-all">
                     Contact Me
                 </a>
             </div>
         </div>
 
-        <a href="#music" aria-label="Scroll down" class="absolute bottom-8 text-gray-500 hover:text-neonCyan transition-colors animate-bounce">
+        <a href="#music" aria-label="Scroll down" class="absolute bottom-8 text-gray-500 hover:text-odditiBlue transition-colors animate-bounce">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
         </a>
     </header>
@@ -127,85 +163,50 @@
     <section id="music" class="py-24 px-6 max-w-5xl mx-auto">
         <div class="flex items-end justify-between mb-12 border-b border-white/10 pb-4">
             <div>
-                <span class="text-xs uppercase tracking-[0.25em] text-neonCyan block mb-1">Discography</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Featured Releases</h2>
+                <span class="text-xs uppercase tracking-[0.25em] text-odditiBlue block mb-1">Discography</span>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Upcoming Release</h2>
             </div>
-            <a href="https://open.spotify.com" target="_blank" rel="noopener" class="text-xs sm:text-sm text-gray-400 hover:text-neonPurple transition-colors tracking-wider uppercase">
-                All Music ↗
+            <a href="https://open.spotify.com" target="_blank" rel="noopener" class="text-xs sm:text-sm text-gray-400 hover:text-odditiRose transition-colors tracking-wider uppercase">
+                Follow on Spotify ↗
             </a>
         </div>
 
-        <!-- EDIT HERE: Replace track titles, cover placeholders, and streaming links -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Track Card 1 -->
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group">
-                <div>
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-purple-900/60 via-indigo-950 to-void mb-4 flex items-center justify-center relative overflow-hidden border border-white/5">
-                        <span class="font-display text-4xl font-bold text-white/15 group-hover:scale-110 transition-transform">01</span>
-                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="w-12 h-12 rounded-full bg-neonPurple text-white flex items-center justify-center shadow-lg">▶</span>
-                        </a>
-                    </div>
-                    <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Track Title One</h3>
-                    <p class="text-xs text-gray-400 mt-1">Single • Psy-Bass</p>
-                </div>
-                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
-                    <a href="https://open.spotify.com" target="_blank" rel="noopener" class="hover:text-white">Spotify ↗</a>
-                    <a href="https://bandcamp.com" target="_blank" rel="noopener" class="hover:text-white">Bandcamp ↗</a>
-                </div>
-            </div>
+        <!-- Upcoming EP Showcase Card -->
+        <div class="max-w-lg mx-auto">
+            <div class="glass-card rounded-3xl p-5 sm:p-6 border border-odditiRose/30 relative overflow-hidden group">
+                <!-- Ambient Glow Behind Cover -->
+                <div class="absolute -inset-4 bg-gradient-to-tr from-odditiCrimson/20 via-odditiRose/15 to-odditiBlue/20 blur-2xl opacity-70 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
-            <!-- Track Card 2 -->
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group">
-                <div>
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-cyan-900/50 via-purple-950 to-void mb-4 flex items-center justify-center relative overflow-hidden border border-white/5">
-                        <span class="font-display text-4xl font-bold text-white/15 group-hover:scale-110 transition-transform">02</span>
-                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="w-12 h-12 rounded-full bg-neonPurple text-white flex items-center justify-center shadow-lg">▶</span>
-                        </a>
+                <div class="relative z-10">
+                    <!-- Cover Art -->
+                    <div class="aspect-square rounded-2xl overflow-hidden border border-white/10 mb-6 relative shadow-[0_15px_40px_rgba(0,0,0,0.65)]">
+                        <!-- Replace src with your cover image filename e.g. mischief-cover.jpg -->
+                        <img src="IMG-20261001-WA0015.jpg" alt="Odditi - Mischief EP Cover" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
                     </div>
-                    <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Track Title Two</h3>
-                    <p class="text-xs text-gray-400 mt-1">EP • Halftime / Glitch</p>
-                </div>
-                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
-                    <a href="https://open.spotify.com" target="_blank" rel="noopener" class="hover:text-white">Spotify ↗</a>
-                    <a href="https://bandcamp.com" target="_blank" rel="noopener" class="hover:text-white">Bandcamp ↗</a>
-                </div>
-            </div>
 
-            <!-- Track Card 3 -->
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group">
-                <div>
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-fuchsia-900/50 via-slate-900 to-void mb-4 flex items-center justify-center relative overflow-hidden border border-white/5">
-                        <span class="font-display text-4xl font-bold text-white/15 group-hover:scale-110 transition-transform">03</span>
-                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="w-12 h-12 rounded-full bg-neonPurple text-white flex items-center justify-center shadow-lg">▶</span>
-                        </a>
+                    <!-- Release Status & Title -->
+                    <div class="text-center space-y-2">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-odditiCrimson/20 border border-odditiCrimson/50 text-odditiRose text-xs font-semibold tracking-[0.22em] uppercase">
+                            <span class="w-1.5 h-1.5 rounded-full bg-odditiCrimson animate-pulse"></span>
+                            Coming Soon
+                        </span>
+                        <h3 class="font-display text-2xl sm:text-3xl font-bold text-white tracking-wide pt-1">
+                            Coming Soon — Mischief EP
+                        </h3>
+                        <p class="text-xs sm:text-sm text-gray-400 tracking-wider uppercase">
+                            ODDITI • Psy-Bass / Halftime / Glitch
+                        </p>
                     </div>
-                    <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Track Title Three</h3>
-                    <p class="text-xs text-gray-400 mt-1">Collab • Psy-Dub</p>
-                </div>
-                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
-                    <a href="https://open.spotify.com" target="_blank" rel="noopener" class="hover:text-white">Spotify ↗</a>
-                    <a href="https://bandcamp.com" target="_blank" rel="noopener" class="hover:text-white">Bandcamp ↗</a>
-                </div>
-            </div>
 
-            <!-- Track Card 4 -->
-            <div class="glass-card rounded-2xl p-4 flex flex-col justify-between group">
-                <div>
-                    <div class="aspect-square rounded-xl bg-gradient-to-br from-indigo-900/60 via-purple-950 to-void mb-4 flex items-center justify-center relative overflow-hidden border border-white/5">
-                        <span class="font-display text-4xl font-bold text-white/15 group-hover:scale-110 transition-transform">04</span>
-                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span class="w-12 h-12 rounded-full bg-neonPurple text-white flex items-center justify-center shadow-lg">▶</span>
+                    <!-- Action Links -->
+                    <div class="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-center gap-3">
+                        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-odditiCrimson/30 to-odditiRose/25 border border-odditiRose/50 hover:border-odditiBlue text-white text-xs tracking-widest uppercase font-semibold transition-all">
+                            Pre-Save / Notify ↗
+                        </a>
+                        <a href="https://bandcamp.com" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-full bg-white/5 border border-white/15 hover:border-odditiBlue text-gray-200 hover:text-odditiBlue text-xs tracking-widest uppercase font-semibold transition-all">
+                            Bandcamp ↗
                         </a>
                     </div>
-                    <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Track Title Four</h3>
-                    <p class="text-xs text-gray-400 mt-1">Remix • Experimental</p>
-                </div>
-                <div class="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
-                    <a href="https://open.spotify.com" target="_blank" rel="noopener" class="hover:text-white">Spotify ↗</a>
-                    <a href="https://bandcamp.com" target="_blank" rel="noopener" class="hover:text-white">Bandcamp ↗</a>
                 </div>
             </div>
         </div>
@@ -214,71 +215,52 @@
     <!-- DJ SETS & MIXES SECTION -->
     <section id="sets" class="py-20 px-6 max-w-5xl mx-auto">
         <div class="mb-10 border-b border-white/10 pb-4">
-            <span class="text-xs uppercase tracking-[0.25em] text-neonPurple block mb-1">Transmissions</span>
+            <span class="text-xs uppercase tracking-[0.25em] text-odditiRose block mb-1">Transmissions</span>
             <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">DJ Sets & Mixes</h2>
         </div>
 
-        <!-- EDIT HERE: Replace with your real SoundCloud / YouTube mix links -->
-        <div class="space-y-4">
-            <a href="https://soundcloud.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-5 flex items-center justify-between group block">
-                <div class="flex items-center gap-5">
-                    <span class="font-display text-xl font-bold text-neonPurple">01</span>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">ODDITI — Live Festival Set</h3>
-                        <p class="text-xs text-gray-400">Psy-Bass / Halftime Journey • 60 min</p>
-                    </div>
-                </div>
-                <span class="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all text-lg">↗</span>
-            </a>
-
-            <a href="https://soundcloud.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-5 flex items-center justify-between group block">
-                <div class="flex items-center gap-5">
-                    <span class="font-display text-xl font-bold text-neonPurple">02</span>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Glitch & Circus Chronicles Mix</h3>
-                        <p class="text-xs text-gray-400">Unreleased IDs & Heavy Sub-Bass • 45 min</p>
-                    </div>
-                </div>
-                <span class="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all text-lg">↗</span>
-            </a>
-
-            <a href="https://soundcloud.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-5 flex items-center justify-between group block">
-                <div class="flex items-center gap-5">
-                    <span class="font-display text-xl font-bold text-neonPurple">03</span>
-                    <div>
-                        <h3 class="font-semibold text-lg text-white group-hover:text-neonCyan transition-colors">Deep Space Downtempo Session</h3>
-                        <p class="text-xs text-gray-400">Organic Textures & Modular Beats • 75 min</p>
-                    </div>
-                </div>
-                <span class="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all text-lg">↗</span>
-            </a>
+        <!-- Embedded SoundCloud Player -->
+        <div class="glass-card rounded-3xl p-4 sm:p-6 border border-odditiRose/25 relative overflow-hidden">
+            <div class="absolute -inset-4 bg-gradient-to-r from-odditiCrimson/10 via-odditiRose/10 to-odditiBlue/10 blur-2xl pointer-events-none"></div>
+            <div class="relative z-10 rounded-2xl overflow-hidden border border-white/10 bg-void/80">
+                <iframe 
+                    width="100%" 
+                    height="180" 
+                    scrolling="no" 
+                    frameborder="no" 
+                    allow="autoplay" 
+                    title="ODDITI - Bassface 6 Halftime Set on SoundCloud"
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/odditimusic/bassface-6-halftime&color=%23D91828&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false">
+                </iframe>
+            </div>
         </div>
     </section>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="py-24 px-6 max-w-4xl mx-auto">
-        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-purple-500/20 relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-neonPurple/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="glass-card rounded-3xl p-8 sm:p-12 border border-odditiRose/25 relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-odditiCrimson/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-odditiBlue/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <span class="text-xs uppercase tracking-[0.25em] text-neonCyan block mb-2">The Project</span>
+            <span class="text-xs uppercase tracking-[0.25em] text-odditiBlue block mb-2">The Project</span>
             <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">About Odditi</h2>
 
             <!-- EDIT HERE: Your Artist Bio -->
             <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg font-light">
                 <p>
-                    <strong class="text-white font-medium">Odditi</strong> is an audio-visual exploration navigating the surreal intersections of <span class="text-neonCyan">Psy-Bass</span>, <span class="text-neonPurple">Halftime</span>, and intricate <span class="text-neonMagenta">Glitch</span> sound design.
+                    <strong class="text-white font-medium">The Odditi lab</strong> is centered around the core philosophy of being <span class="text-odditiBlue">deep without taking itself too seriously</span>. Think deep meaning &amp; mystery meets a <span class="text-odditiRose">childlike wonder, playfulness and laughter</span>.
                 </p>
                 <p>
-                    Blending heavy, hypnotic sub-frequencies with playful, off-kilter rhythms and organic field recordings, the project crafts sonic environments that feel both alien and strangely familiar. Every track is built as a story—shifting between deep meditative grooves and high-energy dancefloor mutations.
+                    It's weird at times, intricate, sacred, atmospheric, humorous and tailored for <span class="text-odditiCrimson font-normal">sound systems and dancefloor energy</span>.
                 </p>
             </div>
 
             <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-4">
-                <a href="#contact" class="px-6 py-2.5 rounded-full bg-neonPurple/20 border border-neonPurple/50 hover:bg-neonPurple/30 text-white text-xs tracking-widest uppercase font-semibold transition-all">
+                <a href="#contact" class="px-6 py-2.5 rounded-full bg-odditiCrimson/25 border border-odditiRose/60 hover:bg-odditiCrimson/35 text-white text-xs tracking-widest uppercase font-semibold transition-all">
                     Get In Touch
                 </a>
                 <!-- EDIT HERE: Link to your Google Drive / Dropbox EPK folder -->
-                <a href="#" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-white/5 border border-white/15 hover:border-neonCyan text-gray-200 hover:text-neonCyan text-xs tracking-widest uppercase font-semibold transition-all">
+                <a href="#" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-white/5 border border-white/15 hover:border-odditiBlue text-gray-200 hover:text-odditiBlue text-xs tracking-widest uppercase font-semibold transition-all">
                     Press Kit / EPK ↗
                 </a>
             </div>
@@ -288,34 +270,34 @@
     <!-- EVERYWHERE / SOCIAL LINKS -->
     <section id="everywhere" class="py-20 px-6 max-w-5xl mx-auto">
         <div class="mb-10 border-b border-white/10 pb-4">
-            <span class="text-xs uppercase tracking-[0.25em] text-neonCyan block mb-1">Frequencies</span>
+            <span class="text-xs uppercase tracking-[0.25em] text-odditiBlue block mb-1">Frequencies</span>
             <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Everywhere</h2>
         </div>
 
         <!-- EDIT HERE: Add your exact profile URLs -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <a href="https://open.spotify.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://open.spotify.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>Spotify</span> <span>↗</span>
             </a>
-            <a href="https://soundcloud.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://soundcloud.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>SoundCloud</span> <span>↗</span>
             </a>
-            <a href="https://bandcamp.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://bandcamp.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>Bandcamp</span> <span>↗</span>
             </a>
-            <a href="https://music.apple.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://music.apple.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>Apple Music</span> <span>↗</span>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>YouTube</span> <span>↗</span>
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>Instagram</span> <span>↗</span>
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-neonCyan">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-gray-200 hover:text-odditiBlue">
                 <span>Facebook</span> <span>↗</span>
             </a>
-            <a href="#contact" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-neonPurple hover:text-white">
+            <a href="#contact" class="glass-card rounded-xl p-4 flex items-center justify-between text-sm font-medium text-odditiRose hover:text-white">
                 <span>Community</span> <span>✦</span>
             </a>
         </div>
@@ -324,7 +306,7 @@
     <!-- CONTACT & BOOKING -->
     <footer id="contact" class="py-24 px-6 border-t border-white/10 bg-void/90 text-center">
         <div class="max-w-2xl mx-auto">
-            <span class="text-xs uppercase tracking-[0.25em] text-neonPurple block mb-2">Bookings & Collaborations</span>
+            <span class="text-xs uppercase tracking-[0.25em] text-odditiRose block mb-2">Bookings & Collaborations</span>
             <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Contact & Booking</h2>
             <p class="text-gray-400 text-sm sm:text-base mb-8">
                 For festival bookings, live sets, remixes, and creative collaborations.
@@ -332,10 +314,10 @@
 
             <!-- EDIT HERE: Your Booking Email -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                <a href="mailto:booking@odditimusic.com" class="px-8 py-3.5 rounded-full bg-white text-void font-semibold text-sm tracking-wider uppercase hover:bg-neonCyan transition-colors">
+                <a href="mailto:booking@odditimusic.com" class="px-8 py-3.5 rounded-full bg-white text-void font-semibold text-sm tracking-wider uppercase hover:bg-odditiRose hover:text-white transition-colors">
                     Email Odditi
                 </a>
-                <button onclick="copyEmail()" id="copyBtn" class="px-6 py-3.5 rounded-full bg-white/5 border border-white/15 hover:border-white/40 text-gray-300 text-xs tracking-widest uppercase transition-all cursor-pointer">
+                <button onclick="copyEmail()" id="copyBtn" class="px-6 py-3.5 rounded-full bg-white/5 border border-white/15 hover:border-odditiBlue text-gray-300 text-xs tracking-widest uppercase transition-all cursor-pointer">
                     Copy: booking@odditimusic.com
                 </button>
             </div>
@@ -349,18 +331,76 @@
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIconOpen = document.getElementById('menuIconOpen');
+        const menuIconClose = document.getElementById('menuIconClose');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIconOpen.classList.add('hidden');
+                menuIconClose.classList.remove('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIconOpen.classList.remove('hidden');
+                menuIconClose.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu automatically when a link is tapped
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMobileMenu();
+                }
+            });
+        });
+
+        // Copy email with fallback for iframe compatibility
         function copyEmail() {
             const email = 'booking@odditimusic.com';
-            navigator.clipboard.writeText(email).then(() => {
-                const btn = document.getElementById('copyBtn');
-                const original = btn.textContent;
+            const btn = document.getElementById('copyBtn');
+            const original = btn.textContent;
+
+            const showSuccess = () => {
                 btn.textContent = 'Copied to clipboard ✓';
-                btn.classList.add('text-neonCyan', 'border-neonCyan');
+                btn.classList.add('text-odditiBlue', 'border-odditiBlue');
                 setTimeout(() => {
                     btn.textContent = original;
-                    btn.classList.remove('text-neonCyan', 'border-neonCyan');
+                    btn.classList.remove('text-odditiBlue', 'border-odditiBlue');
                 }, 2500);
-            });
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(showSuccess).catch(() => fallbackCopy(email, showSuccess));
+            } else {
+                fallbackCopy(email, showSuccess);
+            }
+        }
+
+        function fallbackCopy(text, callback) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                callback();
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(textArea);
         }
     </script>
 </body>
