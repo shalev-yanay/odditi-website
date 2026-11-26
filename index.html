@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Configure Tailwind theme tokens with exact original cyberPink and cyberGreen hex values
+        // Configure Tailwind theme using strictly cyberPink (#FF007F) and cyberGreen (#00FF66) on dark surfaces
         tailwind.config = {
             theme: {
                 extend: {
@@ -25,7 +25,7 @@
                     }
                 }
             }
-        }
+        };
     </script>
     <style>
         body {
@@ -34,7 +34,7 @@
             overflow-x: hidden;
         }
 
-        /* Cosmic Ambient Background restricted to cyberPink (#FF007F) and cyberGreen (#00FF66) */
+        /* Cosmic Ambient Background using strictly #FF007F and #00FF66 */
         .cosmic-bg {
             background:
                 radial-gradient(circle at 50% 25%, rgba(255, 0, 127, 0.16) 0%, transparent 52%),
@@ -77,9 +77,8 @@
         }
 
         /* ------------------------------------------------------------------
-           SUBTLE AMBIENT VIDEO + DARK SCRIM LAYER
-           Sits behind the hero rings & logo (or behind the page softly)
-           without overpowering readability or the orbiting rings.
+           HERO AMBIENT VIDEO + DARK SCRIM LAYER
+           Layered behind the orbiting rings and centered logo with soft opacity.
         ------------------------------------------------------------------ */
         .video-backdrop-wrap {
             position: relative;
@@ -108,7 +107,7 @@
             z-index: 1;
         }
 
-        /* Subtle fallback visual motion when no local MP4 file exists yet (e.g. Preview) */
+        /* Soft visual fallback when background-loop.MOV is not loaded yet */
         @keyframes fallbackFilmScan {
             0% {
                 transform: translate3d(-2%, -1.5%, 0) scale(1.04);
@@ -143,8 +142,7 @@
         }
 
         /* ------------------------------------------------------------------
-           GENTLE PSYCHEDELIC WAVE & DRIFT (Hero Orbit & Ambient)
-           Kept soft and slow around the logo without jitter or glitch bursts.
+           GENTLE PSYCHEDELIC WAVE & ORBITING RINGS AROUND LOGO
         ------------------------------------------------------------------ */
         @keyframes psychedelicWavePulse {
             0%, 100% {
@@ -184,7 +182,7 @@
         }
 
         /* ------------------------------------------------------------------
-           HEADING MICRO-MOTION EFFECTS (Sub-frame signal lock & settle)
+           SUBTLE HEADING MICRO-MOTION EFFECTS (Settle back to crisp state)
         ------------------------------------------------------------------ */
         @keyframes subFrameShift {
             0% {
@@ -331,7 +329,7 @@
 
     <!-- HERO SECTION -->
     <header class="video-backdrop-wrap min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
-        <!-- EDIT HERE: Point src to your MOV loop file (e.g. background-loop.MOV) -->
+        <!-- Ambient MOV Background Video -->
         <video
             id="heroAmbientVideo"
             class="ambient-video-element"
@@ -345,7 +343,7 @@
             <source src="background-loop.MOV" type="video/quicktime">
         </video>
 
-        <!-- Subtle Fallback Wash when background-loop.MOV isn't loaded yet -->
+        <!-- Fallback Wash when background-loop.MOV isn't loaded yet -->
         <div id="videoFallbackWash" class="video-fallback-wash" aria-hidden="true"></div>
 
         <!-- Dark Scrim Layer for Depth & Contrast -->
@@ -354,12 +352,12 @@
         <!-- Gentle Psychedelic Wave & Ambient Layer (#FF007F & #00FF66) -->
         <div class="hero-psychedelic-layer relative z-[2] absolute inset-0 pointer-events-none"></div>
 
-        <!-- Decorative Orbit Rings (Scaled 1.5x to frame the larger logo) -->
+        <!-- Decorative Orbit Rings Framing the Centered Logo -->
         <div class="hero-orbit-outer z-[2] absolute w-[510px] h-[510px] sm:w-[810px] sm:h-[810px] rounded-full border border-cyberPink/20 pointer-events-none"></div>
         <div class="hero-orbit-inner z-[2] absolute w-[390px] h-[390px] sm:w-[630px] sm:h-[630px] rounded-full border border-cyberGreen/20 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-            <!-- Larger Centered Project Logo (logo.svg - Increased by 50%) -->
+            <!-- Centered Project Logo -->
             <img id="heroLogo" src="logo.svg" alt="Odditi Logo" class="w-[92vw] max-w-[480px] sm:max-w-[660px] md:max-w-[810px] h-auto mb-10 logo-glow select-none">
 
             <div class="flex flex-wrap items-center justify-center gap-4">
@@ -396,7 +394,7 @@
                 <div class="absolute -inset-4 bg-gradient-to-tr from-cyberPink/20 via-transparent to-cyberGreen/20 blur-2xl opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
 
                 <div class="relative z-10">
-                    <!-- Cover Art with Hover Darken & Centered COMING SOON Overlay -->
+                    <!-- Cover Art with Hover/Focus Darken & Centered COMING SOON Overlay -->
                     <div tabindex="0" class="aspect-square rounded-2xl overflow-hidden border border-white/10 mb-6 relative shadow-[0_15px_40px_rgba(0,0,0,0.65)] focus:outline-none">
                         <img src="mischief-ep.jpg" alt="Odditi - Mischief EP Cover Art" class="w-full h-full object-cover group-hover:scale-105 group-hover:brightness-50 group-focus-within:brightness-50 transition-all duration-700 ease-out">
                         <div class="absolute inset-0 bg-void/60 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
@@ -449,7 +447,7 @@
 
             <h2 id="heading-about" data-motion-class="motion-subframe" class="section-motion-heading motion-subframe font-display text-3xl sm:text-4xl font-bold text-white mb-6 cursor-pointer">About Odditi</h2>
 
-            <!-- EDIT HERE: Your Artist Bio -->
+            <!-- Artist Bio -->
             <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg font-light">
                 <p>
                     <strong class="text-white font-medium">The Odditi lab</strong> is centered around the core philosophy of being <span class="text-cyberGreen">deep without taking itself too seriously</span>. Think deep meaning &amp; mystery meets a <span class="text-cyberPink">childlike wonder, playfulness and laughter</span>.
@@ -463,7 +461,6 @@
                 <a href="#contact" class="px-6 py-2.5 rounded-full bg-cyberPink/20 border border-cyberPink/60 hover:bg-cyberPink/30 text-white text-xs tracking-widest uppercase font-semibold transition-all">
                     Get In Touch
                 </a>
-                <!-- EDIT HERE: Link to your Google Drive / Dropbox EPK folder -->
                 <a href="#" target="_blank" rel="noopener" class="px-6 py-2.5 rounded-full bg-white/5 border border-white/15 hover:border-cyberGreen text-gray-200 hover:text-cyberGreen text-xs tracking-widest uppercase font-semibold transition-all">
                     Press Kit / EPK ↗
                 </a>
@@ -478,7 +475,7 @@
             <h2 id="heading-everywhere" data-motion-class="motion-jitter" class="section-motion-heading motion-jitter font-display text-3xl sm:text-4xl font-bold text-white cursor-pointer">Everywhere</h2>
         </div>
 
-        <!-- EDIT HERE: Add your exact profile URLs -->
+        <!-- Three Compact Centered Buttons -->
         <div class="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-3">
             <a href="https://soundcloud.com/odditimusic" target="_blank" rel="noopener" class="glass-card rounded-xl px-4 py-3 flex items-center justify-center gap-2 text-center text-sm font-medium text-gray-200 hover:text-cyberPink">
                 <span>SoundCloud</span> <span>↗</span>
@@ -501,7 +498,7 @@
                 For festival bookings, live sets, remixes, and creative collaborations.
             </p>
 
-            <!-- EDIT HERE: Your Booking Email -->
+            <!-- Booking Email Actions -->
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                 <a href="mailto:odditi.music@gmail.com" class="px-8 py-3.5 rounded-full bg-white text-void font-semibold text-sm tracking-wider uppercase hover:bg-cyberGreen hover:text-void transition-colors">
                     Email Odditi
@@ -547,7 +544,6 @@
                     if (fallbackWash) fallbackWash.classList.add('hidden');
                 };
 
-                // Start with fallback visible until real media frames are confirmed loaded
                 if (fallbackWash) fallbackWash.classList.remove('hidden');
 
                 videoEl.addEventListener('loadeddata', showVideo);
@@ -559,7 +555,6 @@
                     sourceEl.addEventListener('error', showFallback);
                 }
 
-                // Honor prefers-reduced-motion cleanly
                 const syncReducedMotion = () => {
                     if (reducedMotionQuery.matches) {
                         videoEl.pause();
