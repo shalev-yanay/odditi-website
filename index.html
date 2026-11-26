@@ -331,7 +331,7 @@
 
     <!-- HERO SECTION -->
     <header class="video-backdrop-wrap min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
-        <!-- EDIT HERE: Point src to your MP4 loop file (e.g. background-loop.mp4) -->
+        <!-- EDIT HERE: Point src to your MOV loop file (e.g. background-loop.mov) -->
         <video
             id="heroAmbientVideo"
             class="ambient-video-element"
@@ -342,10 +342,10 @@
             preload="metadata"
             aria-hidden="true"
         >
-            <source src="background-loop.mp4" type="video/mp4">
+            <source src="background-loop.mov" type="video/quicktime">
         </video>
 
-        <!-- Subtle Fallback Wash when background-loop.mp4 isn't loaded yet -->
+        <!-- Subtle Fallback Wash when background-loop.mov isn't loaded yet -->
         <div id="videoFallbackWash" class="video-fallback-wash" aria-hidden="true"></div>
 
         <!-- Dark Scrim Layer for Depth & Contrast -->
