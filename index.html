@@ -75,6 +75,148 @@
                 linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
                 linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
         }
+
+        /* ------------------------------------------------------------------
+           GENTLE PSYCHEDELIC WAVE & DRIFT (Hero Orbit & Ambient)
+           Kept soft and slow around the logo without jitter or glitch bursts.
+        ------------------------------------------------------------------ */
+        @keyframes psychedelicWavePulse {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) scale(0.992) rotate(0deg);
+                opacity: 0.45;
+            }
+            50% {
+                transform: translate3d(3px, -3px, 0) scale(1.012) rotate(180deg);
+                opacity: 0.65;
+            }
+        }
+
+        @keyframes psychedelicAmbientDrift {
+            0%, 100% {
+                transform: scale(1) translate3d(0, 0, 0);
+                opacity: 0.45;
+            }
+            50% {
+                transform: scale(1.03) translate3d(-0.8%, 0.8%, 0);
+                opacity: 0.68;
+            }
+        }
+
+        .hero-psychedelic-layer {
+            background:
+                radial-gradient(ellipse at 38% 44%, rgba(255, 0, 127, 0.08) 0%, transparent 62%),
+                radial-gradient(ellipse at 64% 56%, rgba(0, 255, 102, 0.07) 0%, transparent 64%);
+            animation: psychedelicAmbientDrift 20s ease-in-out infinite;
+        }
+
+        .hero-orbit-outer {
+            animation: psychedelicWavePulse 26s ease-in-out infinite;
+        }
+
+        .hero-orbit-inner {
+            animation: psychedelicWavePulse 20s ease-in-out infinite reverse;
+        }
+
+        /* ------------------------------------------------------------------
+           HEADING MICRO-MOTION EFFECTS (Sub-frame signal lock & settle)
+        ------------------------------------------------------------------ */
+        @keyframes subFrameShift {
+            0% {
+                transform: translate3d(0, 0, 0);
+                text-shadow: none;
+            }
+            18% {
+                transform: translate3d(-4px, -1px, 0);
+                text-shadow: 2px 0 0 rgba(255, 0, 127, 0.85), -2px 0 0 rgba(0, 255, 102, 0.75);
+            }
+            42% {
+                transform: translate3d(4px, 1px, 0);
+                text-shadow: -2px 0 0 rgba(255, 0, 127, 0.75), 2px 0 0 rgba(0, 255, 102, 0.85);
+            }
+            68% {
+                transform: translate3d(-2px, 0, 0);
+                text-shadow: 1px 0 0 rgba(255, 0, 127, 0.55), -1px 0 0 rgba(0, 255, 102, 0.55);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+                text-shadow: none;
+            }
+        }
+
+        @keyframes signalLock {
+            0% {
+                clip-path: inset(0 0 0 0);
+                transform: translateX(0);
+                color: #ffffff;
+            }
+            20% {
+                clip-path: inset(12% 6% 52% 0);
+                transform: translateX(5px);
+                color: #00FF66;
+            }
+            45% {
+                clip-path: inset(56% 0 10% 5%);
+                transform: translateX(-5px);
+                color: #FF007F;
+            }
+            72% {
+                clip-path: inset(22% 2% 28% 2%);
+                transform: translateX(2px);
+                color: #ffffff;
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translateX(0);
+                color: #ffffff;
+            }
+        }
+
+        @keyframes microJitter {
+            0% {
+                transform: translate3d(0, 0, 0) skewX(0deg);
+            }
+            15% {
+                transform: translate3d(3px, -2px, 0) skewX(-5deg);
+            }
+            35% {
+                transform: translate3d(-3px, 2px, 0) skewX(5deg);
+            }
+            55% {
+                transform: translate3d(2px, 1px, 0) skewX(-2deg);
+            }
+            75% {
+                transform: translate3d(-1px, -1px, 0) skewX(1deg);
+            }
+            100% {
+                transform: translate3d(0, 0, 0) skewX(0deg);
+            }
+        }
+
+        .motion-subframe.is-playing {
+            animation: subFrameShift 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        .motion-signallock.is-playing {
+            animation: signalLock 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .motion-jitter.is-playing {
+            animation: microJitter 340ms cubic-bezier(0.25, 1, 0.5, 1) both;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-psychedelic-layer,
+            .hero-orbit-outer,
+            .hero-orbit-inner,
+            .motion-subframe.is-playing,
+            .motion-signallock.is-playing,
+            .motion-jitter.is-playing {
+                animation: none !important;
+                transform: none !important;
+                clip-path: none !important;
+                text-shadow: none !important;
+            }
+        }
     </style>
 </head>
 <body class="cosmic-bg bg-grid antialiased selection:bg-cyberPink selection:text-white">
@@ -122,13 +264,16 @@
 
     <!-- HERO SECTION -->
     <header class="min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
+        <!-- Gentle Psychedelic Wave & Ambient Layer (#FF007F & #00FF66) -->
+        <div class="hero-psychedelic-layer absolute inset-0 pointer-events-none"></div>
+
         <!-- Decorative Orbit Rings (Scaled 1.5x to frame the larger logo) -->
-        <div class="absolute w-[510px] h-[510px] sm:w-[810px] sm:h-[810px] rounded-full border border-cyberPink/20 pointer-events-none animate-[spin_45s_linear_infinite]"></div>
-        <div class="absolute w-[390px] h-[390px] sm:w-[630px] sm:h-[630px] rounded-full border border-cyberGreen/20 pointer-events-none animate-[spin_30s_linear_infinite_reverse]"></div>
+        <div class="hero-orbit-outer absolute w-[510px] h-[510px] sm:w-[810px] sm:h-[810px] rounded-full border border-cyberPink/20 pointer-events-none"></div>
+        <div class="hero-orbit-inner absolute w-[390px] h-[390px] sm:w-[630px] sm:h-[630px] rounded-full border border-cyberGreen/20 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
             <!-- Larger Centered Project Logo (logo.svg - Increased by 50%) -->
-            <img src="logo.svg" alt="Odditi Logo" class="w-[92vw] max-w-[480px] sm:max-w-[660px] md:max-w-[810px] h-auto mb-10 logo-glow select-none">
+            <img id="heroLogo" src="logo.svg" alt="Odditi Logo" class="w-[92vw] max-w-[480px] sm:max-w-[660px] md:max-w-[810px] h-auto mb-10 logo-glow select-none">
 
             <div class="flex flex-wrap items-center justify-center gap-4">
                 <a href="#music" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-cyberPink/30 to-cyberGreen/20 border border-cyberPink/70 hover:border-cyberGreen text-white text-sm tracking-widest uppercase font-semibold transition-all shadow-[0_0_24px_rgba(255,0,127,0.35)] hover:shadow-[0_0_30px_rgba(0,255,102,0.45)]">
@@ -150,7 +295,7 @@
         <div class="flex items-end justify-between mb-12 border-b border-white/10 pb-4">
             <div>
                 <span class="text-xs uppercase tracking-[0.25em] text-cyberPink block mb-1">Discography</span>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Upcoming Release</h2>
+                <h2 id="heading-music" data-motion-class="motion-subframe" class="section-motion-heading motion-subframe font-display text-3xl sm:text-4xl font-bold text-white cursor-pointer">Upcoming Release</h2>
             </div>
             <a href="https://open.spotify.com" target="_blank" rel="noopener" class="text-xs sm:text-sm text-gray-400 hover:text-cyberGreen transition-colors tracking-wider uppercase">
                 Follow on Spotify ↗
@@ -189,7 +334,7 @@
     <section id="sets" class="py-20 px-6 max-w-5xl mx-auto">
         <div class="mb-10 border-b border-white/10 pb-4">
             <span class="text-xs uppercase tracking-[0.25em] text-cyberPink block mb-1">Transmissions</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">DJ Sets & Mixes</h2>
+            <h2 id="heading-sets" data-motion-class="motion-signallock" class="section-motion-heading motion-signallock font-display text-3xl sm:text-4xl font-bold text-white cursor-pointer">DJ Sets & Mixes</h2>
         </div>
 
         <!-- Embedded SoundCloud Player -->
@@ -215,7 +360,7 @@
             <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyberPink/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-cyberGreen/15 rounded-full blur-3xl pointer-events-none"></div>
 
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">About Odditi</h2>
+            <h2 id="heading-about" data-motion-class="motion-subframe" class="section-motion-heading motion-subframe font-display text-3xl sm:text-4xl font-bold text-white mb-6 cursor-pointer">About Odditi</h2>
 
             <!-- EDIT HERE: Your Artist Bio -->
             <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg font-light">
@@ -243,7 +388,7 @@
     <section id="everywhere" class="py-20 px-6 max-w-5xl mx-auto">
         <div class="mb-10 border-b border-white/10 pb-4">
             <span class="text-xs uppercase tracking-[0.25em] text-cyberGreen block mb-1">Frequencies</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">Everywhere</h2>
+            <h2 id="heading-everywhere" data-motion-class="motion-jitter" class="section-motion-heading motion-jitter font-display text-3xl sm:text-4xl font-bold text-white cursor-pointer">Everywhere</h2>
         </div>
 
         <!-- EDIT HERE: Add your exact profile URLs -->
@@ -264,7 +409,7 @@
     <footer id="contact" class="py-24 px-6 border-t border-white/10 bg-void/90 text-center">
         <div class="max-w-2xl mx-auto">
             <span class="text-xs uppercase tracking-[0.25em] text-cyberPink block mb-2">Bookings & Collaborations</span>
-            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Contact & Booking</h2>
+            <h2 id="heading-contact" data-motion-class="motion-signallock" class="section-motion-heading motion-signallock font-display text-3xl sm:text-4xl font-bold text-white mb-4 cursor-pointer">Contact & Booking</h2>
             <p class="text-gray-400 text-sm sm:text-base mb-8">
                 For festival bookings, live sets, remixes, and creative collaborations.
             </p>
@@ -295,6 +440,54 @@
         } catch (err) {
             console.error('Failed to update year:', err);
         }
+
+        // Section Heading Micro-Motion: triggers once when scrolled into view and on hover
+        (function initSectionHeadingMotion() {
+            try {
+                const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                const sectionHeadings = Array.from(document.querySelectorAll('.section-motion-heading'));
+                const triggeredOnScroll = new Set();
+
+                function triggerHeadingMotion(el) {
+                    if (!el || reducedMotionQuery.matches) return;
+                    el.classList.remove('is-playing');
+                    void el.offsetWidth;
+                    el.classList.add('is-playing');
+                }
+
+                sectionHeadings.forEach((heading) => {
+                    heading.addEventListener('animationend', () => {
+                        heading.classList.remove('is-playing');
+                    });
+
+                    heading.addEventListener('mouseenter', () => {
+                        triggerHeadingMotion(heading);
+                    });
+                });
+
+                if ('IntersectionObserver' in window) {
+                    const headingObserver = new IntersectionObserver(
+                        (entries) => {
+                            if (reducedMotionQuery.matches) return;
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    const target = entry.target;
+                                    if (!triggeredOnScroll.has(target.id)) {
+                                        triggeredOnScroll.add(target.id);
+                                        triggerHeadingMotion(target);
+                                    }
+                                }
+                            });
+                        },
+                        { threshold: 0.4 }
+                    );
+
+                    sectionHeadings.forEach((heading) => headingObserver.observe(heading));
+                }
+            } catch (err) {
+                console.error('Section heading motion setup failed:', err);
+            }
+        })();
 
         // Mobile Menu Toggle Logic
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
