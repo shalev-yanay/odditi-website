@@ -77,6 +77,72 @@
         }
 
         /* ------------------------------------------------------------------
+           SUBTLE AMBIENT VIDEO + DARK SCRIM LAYER
+           Sits behind the hero rings & logo (or behind the page softly)
+           without overpowering readability or the orbiting rings.
+        ------------------------------------------------------------------ */
+        .video-backdrop-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ambient-video-element {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.24;
+            filter: saturate(1.15) contrast(1.06) brightness(0.85);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ambient-video-scrim {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(7, 7, 12, 0.28) 0%, rgba(7, 7, 12, 0.78) 72%, rgba(7, 7, 12, 0.94) 100%),
+                linear-gradient(to bottom, rgba(7, 7, 12, 0.55), rgba(7, 7, 12, 0.35) 50%, rgba(7, 7, 12, 0.85));
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Subtle fallback visual motion when no local MP4 file exists yet (e.g. Preview) */
+        @keyframes fallbackFilmScan {
+            0% {
+                transform: translate3d(-2%, -1.5%, 0) scale(1.04);
+                opacity: 0.14;
+            }
+            50% {
+                transform: translate3d(2%, 1.5%, 0) scale(1.08);
+                opacity: 0.24;
+            }
+            100% {
+                transform: translate3d(-2%, -1.5%, 0) scale(1.04);
+                opacity: 0.14;
+            }
+        }
+
+        .video-fallback-wash {
+            position: absolute;
+            inset: -8%;
+            background:
+                radial-gradient(circle at 32% 38%, rgba(255, 0, 127, 0.22) 0%, transparent 55%),
+                radial-gradient(circle at 68% 62%, rgba(0, 255, 102, 0.18) 0%, transparent 58%),
+                repeating-linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.025) 0px,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+            animation: fallbackFilmScan 16s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ------------------------------------------------------------------
            GENTLE PSYCHEDELIC WAVE & DRIFT (Hero Orbit & Ambient)
            Kept soft and slow around the logo without jitter or glitch bursts.
         ------------------------------------------------------------------ */
@@ -208,6 +274,7 @@
             .hero-psychedelic-layer,
             .hero-orbit-outer,
             .hero-orbit-inner,
+            .video-fallback-wash,
             .motion-subframe.is-playing,
             .motion-signallock.is-playing,
             .motion-jitter.is-playing {
@@ -263,13 +330,33 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
+    <header class="video-backdrop-wrap min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
+        <!-- EDIT HERE: Point src to your MP4 loop file (e.g. background-loop.mp4) -->
+        <video
+            id="heroAmbientVideo"
+            class="ambient-video-element"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            aria-hidden="true"
+        >
+            <source src="background-loop.mp4" type="video/mp4">
+        </video>
+
+        <!-- Subtle Fallback Wash when background-loop.mp4 isn't loaded yet -->
+        <div id="videoFallbackWash" class="video-fallback-wash" aria-hidden="true"></div>
+
+        <!-- Dark Scrim Layer for Depth & Contrast -->
+        <div class="ambient-video-scrim" aria-hidden="true"></div>
+
         <!-- Gentle Psychedelic Wave & Ambient Layer (#FF007F & #00FF66) -->
-        <div class="hero-psychedelic-layer absolute inset-0 pointer-events-none"></div>
+        <div class="hero-psychedelic-layer relative z-[2] absolute inset-0 pointer-events-none"></div>
 
         <!-- Decorative Orbit Rings (Scaled 1.5x to frame the larger logo) -->
-        <div class="hero-orbit-outer absolute w-[510px] h-[510px] sm:w-[810px] sm:h-[810px] rounded-full border border-cyberPink/20 pointer-events-none"></div>
-        <div class="hero-orbit-inner absolute w-[390px] h-[390px] sm:w-[630px] sm:h-[630px] rounded-full border border-cyberGreen/20 pointer-events-none"></div>
+        <div class="hero-orbit-outer z-[2] absolute w-[510px] h-[510px] sm:w-[810px] sm:h-[810px] rounded-full border border-cyberPink/20 pointer-events-none"></div>
+        <div class="hero-orbit-inner z-[2] absolute w-[390px] h-[390px] sm:w-[630px] sm:h-[630px] rounded-full border border-cyberGreen/20 pointer-events-none"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
             <!-- Larger Centered Project Logo (logo.svg - Increased by 50%) -->
@@ -440,6 +527,55 @@
         } catch (err) {
             console.error('Failed to update year:', err);
         }
+
+        // Ambient Video Fallback & Reduced Motion Handling
+        (function initAmbientVideo() {
+            try {
+                const videoEl = document.getElementById('heroAmbientVideo');
+                const fallbackWash = document.getElementById('videoFallbackWash');
+                const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+                if (!videoEl) return;
+
+                const showFallback = () => {
+                    videoEl.classList.add('hidden');
+                    if (fallbackWash) fallbackWash.classList.remove('hidden');
+                };
+
+                const showVideo = () => {
+                    videoEl.classList.remove('hidden');
+                    if (fallbackWash) fallbackWash.classList.add('hidden');
+                };
+
+                // Start with fallback visible until real media frames are confirmed loaded
+                if (fallbackWash) fallbackWash.classList.remove('hidden');
+
+                videoEl.addEventListener('loadeddata', showVideo);
+                videoEl.addEventListener('canplay', showVideo);
+                videoEl.addEventListener('error', showFallback);
+
+                const sourceEl = videoEl.querySelector('source');
+                if (sourceEl) {
+                    sourceEl.addEventListener('error', showFallback);
+                }
+
+                // Honor prefers-reduced-motion cleanly
+                const syncReducedMotion = () => {
+                    if (reducedMotionQuery.matches) {
+                        videoEl.pause();
+                    } else if (!videoEl.classList.contains('hidden')) {
+                        videoEl.play().catch(() => {});
+                    }
+                };
+
+                syncReducedMotion();
+                if (reducedMotionQuery.addEventListener) {
+                    reducedMotionQuery.addEventListener('change', syncReducedMotion);
+                }
+            } catch (err) {
+                console.error('Ambient video setup failed:', err);
+            }
+        })();
 
         // Section Heading Micro-Motion: triggers once when scrolled into view and on hover
         (function initSectionHeadingMotion() {
