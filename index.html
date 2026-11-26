@@ -107,7 +107,7 @@
             z-index: 1;
         }
 
-        /* Soft visual fallback when background-loop.MOV is not loaded yet */
+        /* Soft visual fallback when background-loop.mp4 is not loaded yet */
         @keyframes fallbackFilmScan {
             0% {
                 transform: translate3d(-2%, -1.5%, 0) scale(1.04);
@@ -329,7 +329,7 @@
 
     <!-- HERO SECTION -->
     <header class="video-backdrop-wrap min-h-screen flex flex-col items-center justify-center px-6 pt-16 text-center relative overflow-hidden">
-        <!-- Ambient MOV Background Video -->
+        <!-- Ambient MP4 Background Video -->
         <video
             id="heroAmbientVideo"
             class="ambient-video-element"
@@ -340,10 +340,10 @@
             preload="metadata"
             aria-hidden="true"
         >
-            <source src="background-loop.MOV" type="video/quicktime">
+            <source src="background-loop.mp4" type="video/mp4">
         </video>
 
-        <!-- Fallback Wash when background-loop.MOV isn't loaded yet -->
+        <!-- Fallback Wash when background-loop.mp4 isn't loaded yet -->
         <div id="videoFallbackWash" class="video-fallback-wash" aria-hidden="true"></div>
 
         <!-- Dark Scrim Layer for Depth & Contrast -->
